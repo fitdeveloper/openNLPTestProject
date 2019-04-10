@@ -1,0 +1,39 @@
+<START:payment> Visa ok <END> and <START:payment> MasterCard <END> are <START:payment> credit card <END> networks, or schemes or brands. They act as intermediaries between issuers and acquirers 
+(typically banks) in authorizing <START:payment>credit card transactions<END>. They don't issue credit cards themselves, but do it in conjunction 
+with issuers. E.g.
+Your local bank would provide you with a <START:payment> credit <END> branded with Visa or MasterCard. If you try to make a purchase, any local 
+shop which accepts Visa or MasterCard would be able to take a payment from you using your <START:payment> credit card <END>
+An online merchant would likely be using a <START:payment> payment gateway <END> or a payment processor to interact with Visa/MasterCard's networks 
+in order to facilitate that payment. This is where <START:payment> PayPal <END> comes in..
+PayPal is a lot of things. It typically acts as processor or a gateway connecting to <START:payment1> Visa <END> etc. to facilitate 
+payments. It is also a wallet, acting as an open-loop system which holds people's money akin to bank accounts. 
+It is essentially a layer between users and a multitude of other financial services. E.g.
+An online shop uses PayPal's gateway. So if you don't have a paypal account but only a credit / debit card, PayPal
+ taps into <START:payment> Visa ok <END>  network and processes the transaction, ensuring that the transaction occurs between
+ the respective issuers and acquirers in relation to your <START:payment> credit card <END>
+An online shop uses PayPal's gateway. So if you have a PayPal account with some balance in it, you pay using that 
+balance directly to the shop owner. The money thus moves from your PayPal account to the shop owner's PayPal account. 
+Later on, when the shop owner wants to receive physical cash, she/he transfers money from her/his PayPal account 
+to her/his bank account (a process typically known as settlement)
+This is gross oversimplification and PayPal is getting progressively harder to classify. For most of its clients, 
+PayPal is an aggregator/master merchant. For larger merchants, when it assigns an individual merchant account, 
+it is an ISO. In the U.S., they clear transactions through four acquirers: WorldPay, Global Payments/HSBC, First Data, 
+and Chase PaymentTech. In Europe, they clear transactions through WorldPay and Global Payments/HSBC. (via Ben Brown - 
+Written 15 Mar, 2013)
+PayPal (in Europe at least) is a registered bank, and they provide audited, electronic fund transfer between your account
+ (on PayPal) and someone else's. They use their own method to do this, which has the advantage of not requiring 
+ your details to be sent to a human being. There is therefore no risk of having your card number stolen, because 
+ you don't have one. Generally speaking, your PayPal account can be linked to your real bank account 
+ (usually by card, but not always), and money taken from your account when your PayPal balance reaches zero. 
+ (This can cause confusion, as if you ever receive a one-off payment to your PayPal account, your bank balance won't 
+ reflect your next PayPal payments until the balance gets used up).
+With <START:payment> Visa ok <END>
+you will be given your card details to the other person, and taking it on trust that they won't take more money 
+than they claim, and won't ever use their card details a second time. This sounds bad, but you do get two forms of
+ protection: one is that failing to properly secure someone's card details is an offence in most countries, 
+ and the other party could go to jail for abusing your trust, and most intelligent people won't risk that. 
+ The other is that your bank has an anti-fraud department that will actively monitor all their customer's accounts for suspicious activity.
+
+Generally speaking, payment with PayPal is secure, but you're not protected from the other person running away with your money or providing you
+ with shoddy goods (except for some eBay purchases, which are insured automatically). Payment by card is not secure, particularly when dealing with people you don't know.
+ Either way, the most common problems are goods not being sent or being as described; payment problems are rare but can be devastating.
