@@ -7,7 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import opennlp.tools.namefind.BioCodec;
 import opennlp.tools.namefind.NameFinderME;
@@ -17,6 +19,9 @@ import opennlp.tools.namefind.TokenNameFinderFactory;
 import opennlp.tools.namefind.TokenNameFinderModel;
 import opennlp.tools.sentdetect.SentenceDetectorME;
 import opennlp.tools.sentdetect.SentenceModel;
+import opennlp.tools.tokenize.Tokenizer;
+import opennlp.tools.tokenize.TokenizerME;
+import opennlp.tools.tokenize.TokenizerModel;
 import opennlp.tools.util.InputStreamFactory;
 import opennlp.tools.util.InvalidFormatException;
 import opennlp.tools.util.MarkableFileInputStreamFactory;
@@ -42,8 +47,6 @@ public class Test2 {
 //	        } 
 //		
 		
-		Test2 test2 = new Test2();
-		ObjectStream objectStream =test2.readTrainningData("C:\\Users\\ghost\\Desktop\\AnnotatedSentences.txt\\creditCardDataTraining.txt");
 		
    //     System.out.println("----------");
 
@@ -65,15 +68,33 @@ public class Test2 {
 //            }
 //            System.out.println(name.getType()+" : "+personName+"\t [probability="+name.getProb()+"]");
 //        } 
-        
-        InputStream is = new FileInputStream("C:\\Users\\ghost\\Desktop\\AnnotatedSentences.txt\\ner-custom-model.bin");
-        
+		
+		
+		
+		InputStream is2 = new FileInputStream("en-token.bin");
+		TokenizerModel model2 = new TokenizerModel(is2);
+		Tokenizer tokenizer = new TokenizerME(model2);
+		String tokens[] = tokenizer.tokenize("Visa ok yes or no ?");
+		List sentences = new ArrayList<String>() ;
+		for (String a : tokens) {
+			System.out.println(a);
+            sentences.add(a);
+		}
+			
+		is2.close();
+
+		Test2 test2 = new Test2();
+		ObjectStream objectStream =test2.readTrainningData("creditCardDataTraining.txt");
+        TokenNameFinder nameFinder = new NameFinderME(test2.trainTheModel(objectStream));
+
+        InputStream is = new FileInputStream("nerr-custom-model.bin");
+
     	TokenNameFinderModel model = new TokenNameFinderModel(is);
     	is.close();
      
-        TokenNameFinder nameFinder = new NameFinderME(test2.trainTheModel(objectStream));
      
-    	String []sentence = new String[]{"Visa","ok","", "ok","sjjs"};
+    	String []sentence = (String[]) sentences.toArray();
+    			// new String[]{"Visa","ok","", "ok","sjjs"};
      
     		Span nameSpans[] = nameFinder.find(sentence);
 			System.out.println("------------");	
@@ -143,7 +164,7 @@ public class Test2 {
 		    e.printStackTrace();
 		} 
 		
-		File output = new File("C:\\Users\\ghost\\Desktop\\AnnotatedSentences.txt\\ner-custom-model.bin");
+		File output = new File("nerr-custom-model.bin");
 		FileOutputStream outputStream;
 	
 		try {
